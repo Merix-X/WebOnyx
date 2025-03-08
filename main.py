@@ -1584,5 +1584,3 @@ class OnyxAI:
         while True:
             self.mainloop("self")
             Audio.Engine_say(Audio, " Restarting")
-if __name__ == "__main__":
-    OnyxAI.main(OnyxAI)
