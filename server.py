@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from main import OnyxAI  # Tvůj hlavní soubor s AI
+from main import OnyxAI, Audio  # Tvůj hlavní soubor s AI
 import speech_recognition as sr
 
 app = Flask(__name__)
@@ -10,7 +10,7 @@ onyx = OnyxAI.main()
 def ask():
     data = request.json
     question = data.get("query", "")
-    response = onyx.TakeCommand()  # Nebo nějaká jiná metoda na zpracování vstupu
+    response = Audio.TakeCommand()  # Nebo nějaká jiná metoda na zpracování vstupu
     return jsonify({"response": response})
 
 
