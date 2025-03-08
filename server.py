@@ -4,13 +4,13 @@ import speech_recognition as sr
 
 app = Flask(__name__)
 recognizer = sr.Recognizer()
-onyx = OnyxAI.main()
+onyx = OnyxAI()
 
 @app.route('/ask', methods=['POST'])
 def ask():
     data = request.json
     question = data.get("query", "")
-    response = Audio.TakeCommand()  # Nebo nějaká jiná metoda na zpracování vstupu
+    response = OnyxAI.mainloop()
     return jsonify({"response": response})
 
 
