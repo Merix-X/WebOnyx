@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Onyx AI Assistant</title>
+</head>
+<body>
+    <h2>Ask Onyx:</h2>
+    <input id="user-input" type="text" placeholder="Ask something...">
+    <button id="send-button">Send</button>
+    <button id="voice-button">Voice</button>
+    <p id="recognized-text"></p>
+
+    <h2>Onyx's Response:</h2>
+    <textarea id="console-output" rows="10" cols="50" readonly></textarea>
+
+    <script>
+        async function sendQuery() {
+            const userInput = document.getElementById("user-input").value;
+            if (!userInput) return;
+
+            try {
+                const response = await axios.post('https://your-backend-url.com/ask', {
+                    query: userInput
+                });
+
+                const outputArea = document.getElementById("console-output");
+                outputArea.value += `\nYou: ${userInput}\nOnyx: ${response.data.response}\n`;
+                speak(response.data.response);
+                document.getElementById("user-input").value = '';
+            } catch (error) {
+                console.error('Error communicating with backend:', error);
+            }
+        }
+
+        // Hlasový vstup
+        if ('webkitSpeechRecognition' in window) {
+            const recognition = new webkitSpeechRecognition();
+            recognition.lang = "en-US";
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById("user-input").value = transcript;
+                document.getElementById("recognized-text").textContent = "You said: " + transcript;
+            };
+
+            document.getElementById("voice-button").addEventListener("click", () => {
+                document.getElementById("recognized-text").textContent = "Listening...";
+                recognition.start();
+            });
+        } else {
+            document.getElementById("voice-button").disabled = true;
+            document.getElementById("recognized-text").textContent = "Speech recognition not supported.";
+        }
+
+        function speak(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            speechSynthesis.speak(utterance);
+        }
+
+        document.getElementById("send-button").addEventListener("click", sendQuery);
+    </script>
+</body>
+</html>
