@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
-import main  # Tvůj hlavní soubor s AI
+from main import OnyxAI  # Tvůj hlavní soubor s AI
 import speech_recognition as sr
 
 app = Flask(__name__)
 recognizer = sr.Recognizer()
-onyx = main.Onyx()
+onyx = OnyxAI.main()
 
 @app.route('/ask', methods=['POST'])
 def ask():
