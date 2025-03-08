@@ -1,0 +1,11 @@
+ To remove a file in Python, you can use the `os.remove()` function from the built-in `os` module. The `os.remove()` function takes a string argument that specifies the path of the file to be removed. Here's an example:
+```python
+import os
+
+# specify the path of the file you want to remove
+file_path = "/path/to/your/file"
+
+# use os.remove() to delete the file
+os.remove(file_path)
+```
+Note that `os.remove()` will raise a `FileNotFoundError` if the specified file does not exist, so you should handle this error in your code. Additionally, be careful when using this function, as it will permanently delete the file without any confirmation prompt. 

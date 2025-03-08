@@ -1,0 +1,7 @@
+firefoxC:\Program Files\Mozilla Firefox\mozilla.exe
+internet browserC:\Program Files\Mozilla Firefox\mozilla.exe
+browserC:\Program Files\Mozilla Firefox\mozilla.exe
+minecraftC:\XboxGames\Minecraft Launcher\Content\Minecraft.exe
+pycharmC:\Program Files\JetBrains\PyCharm Community Edition 2023.1\bin\pycharm64.exe
+cmdC:\Windows\System32\cmd.exe
+resolveC:\Program Files\Blackmagic Design\DaVinci Resolve\Resolve.exe

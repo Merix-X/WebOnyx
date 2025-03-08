@@ -1,0 +1,10 @@
+You can use only this commands:
+1. If you say: shut down, Onyx will shut down.
+2. If you say: music, Onyx picks a random song from the playlist and plays it.
+3. If you say: open 'some program' or 'some web', Onyx will open the program or web what you said.
+4. If you say: time, Onyx tell you what time is it now.
+5. If you say: 'Onyx' and any question, Onyx answer you.
+6. If you say: make file and 'some_name_of_file.some_extension', Onyx makes file what you said
+7. If you say: search and what you want to search for on google, Onyx will search for what you said
+8. If you say: 'create' and python file, text file or cpp file + 'some name', Onyx will create the file what you said
+9. If you say: 'view' or 'security', Onyx opens program with security cameras
